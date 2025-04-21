@@ -9,7 +9,6 @@ const Header = () => {
         alt="Bhutan Wine Company Logo" 
         className="logo" 
       />
-      <h1>Bhutan Wine Company</h1>
     </div>
   );
 };

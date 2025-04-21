@@ -50,38 +50,50 @@ const WelcomePage = () => {
   };
 
   return (
-    <div className="container">
+    <div className="page-container">
       <Header />
-      <form onSubmit={handleSubmit}>
-        <InputField 
-          label="Name"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter your full name"
-          required
-        />
-        <InputField 
-          label="Email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email address"
-          required
-        />
-        <Button 
-          text={isSubmitting ? "Submitting..." : "Submit"}
-          type="submit"
-          disabled={isSubmitting}
-        />
-      </form>
-      
-      {isSubmitting && (
-        <div className="submitting-container">
-          <div className="submitting-spinner"></div>
-          <div className="submitting-text">Submitting...</div>
-        </div>
-      )}
+      <div className="content-container">
+        <h2 style={{ color: 'white', textAlign: 'center', marginBottom: '20px' }}>
+          Step 1 - Enter your name and email for 5% off non-wine merchandise
+        </h2>
+        <form onSubmit={handleSubmit} className="form-container" style={{ 
+          display: 'flex', 
+          flexDirection: 'column', 
+          alignItems: 'center',
+          maxWidth: '400px',
+          margin: '0 auto',
+          width: '100%'
+        }}>
+          <InputField 
+            label="Name"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter your full name"
+            required
+          />
+          <InputField 
+            label="Email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email address"
+            required
+          />
+          <Button 
+            text={isSubmitting ? "Submitting..." : "Submit"}
+            type="submit"
+            disabled={isSubmitting}
+          />
+        </form>
+        
+        {isSubmitting && (
+          <div className="submitting-container">
+            <div className="submitting-spinner"></div>
+            <div className="submitting-text">Submitting...</div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

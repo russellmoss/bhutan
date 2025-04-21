@@ -120,49 +120,81 @@ const EngagePage = () => {
   };
 
   return (
-    <div className="container">
+    <div className="page-container">
       <Header />
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <>
-          <h1>Engage and Save</h1>
-          <p style={{ textAlign: 'center' }}>Leave us a review and/or follow us on Instagram and stay in touch. Receive 5% off non-wine merchandise per activity you perform.</p>
-          
-          <div className="button-container">
-            <img 
-              src="/images/google-logo.svg" 
-              alt="Google Logo" 
-              className="social-icon"
-            />
-            <Button 
-              text="Review us on Google" 
-              onClick={handleGoogleReview} 
-            />
-            {googleReviewed && <span className="checkmark">✓</span>}
-          </div>
-          
-          <div className="button-container">
-            <img 
-              src="/images/instagram-logo.svg" 
-              alt="Instagram Logo" 
-              className="social-icon"
-            />
-            <Button 
-              text="Follow us on Instagram" 
-              onClick={handleInstagramFollow} 
-            />
-            {instagramFollowed && <span className="checkmark">✓</span>}
-          </div>
-          
-          {showConfetti && (
-            <div className="thank-you-message">
-              <h2>Thank you for being the best part of the Bhutan Wine Company</h2>
-              <canvas id="confetti-canvas" ref={confettiRef}></canvas>
+      <div className="content-container">
+        <h1 style={{ color: '#FFD700', textAlign: 'center', marginBottom: '20px' }}>Engage and Save</h1>
+        <h2 style={{ color: 'white', textAlign: 'center', marginBottom: '20px' }}>
+          Step 2 - Receive an additional 5% off non-wine merchandise for reviewing us on Google and following us on Instagram. Do both? Get a total of 15% off all non-wine merchandise and stay engaged with Bhutan Wine Company!
+        </h2>
+        {isLoading ? (
+          <div className="loading">Loading...</div>
+        ) : (
+          <div className="engagement-container" style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            maxWidth: '600px',
+            margin: '0 auto',
+            width: '100%'
+          }}>
+            <div className="button-container" style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginBottom: '20px',
+              width: '100%',
+              maxWidth: '300px',
+              gap: '10px'
+            }}>
+              <img 
+                src="/images/google-logo.svg" 
+                alt="Google Logo" 
+                className="social-icon"
+                style={{ width: '24px', height: '24px' }}
+              />
+              <Button 
+                text="Review us on Google" 
+                onClick={handleGoogleReview}
+                style={{ width: '100%', maxWidth: '250px' }}
+              />
+              {googleReviewed && <span className="checkmark">✓</span>}
             </div>
-          )}
-        </>
-      )}
+            
+            <div className="button-container" style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginBottom: '20px',
+              width: '100%',
+              maxWidth: '300px',
+              gap: '10px'
+            }}>
+              <img 
+                src="/images/instagram-logo.svg" 
+                alt="Instagram Logo" 
+                className="social-icon"
+                style={{ width: '24px', height: '24px' }}
+              />
+              <Button 
+                text="Follow us on Instagram" 
+                onClick={handleInstagramFollow}
+                style={{ width: '100%', maxWidth: '250px' }}
+              />
+              {instagramFollowed && <span className="checkmark">✓</span>}
+            </div>
+            
+            {showConfetti && (
+              <div className="thank-you-message">
+                <h2>Thank you for being the best part of the Bhutan Wine Company</h2>
+                <canvas id="confetti-canvas" ref={confettiRef}></canvas>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
