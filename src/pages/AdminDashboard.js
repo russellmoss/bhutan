@@ -31,7 +31,7 @@ const AdminDashboard = () => {
     });
 
     return () => unsubscribe();
-  }, [navigate, auth]);
+  }, [navigate]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
