@@ -1,0 +1,549 @@
+/* Global styles for Bhutan Wine Company app */
+:root {
+  --primary-color: #8B0000;
+  --secondary-color: #4A0404;
+  --text-color: #FFFFFF;
+  --background-color: #000000;
+  --accent-color: #FFD700;
+  --header-color: #FFD700;   /* Yellow for headers */
+  --button-bg: #FFD700;      /* Yellow for buttons */
+  --button-text: #000000;    /* Black for button text */
+  --success-color: #4CAF50;  /* Green for checkmarks */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Playfair Display', serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  color: var(--header-color);
+}
+
+p, span, div {
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 20%;
+  margin-bottom: 20px;
+}
+
+.checkmark {
+  color: var(--success-color);
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+/* Social media icons */
+.social-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+/* Form styles */
+form {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px 0;
+}
+
+.input-field {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.input-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--header-color);
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+.input-field input:focus {
+  outline: none;
+  border-color: var(--button-bg);
+  box-shadow: 0 0 5px var(--button-bg);
+}
+
+/* Button styles */
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: center;
+  background-color: var(--accent-color);
+  color: #000000;
+  text-shadow: none;
+  opacity: 1;
+}
+
+.button:hover {
+  background-color: #808080;
+  color: white;
+}
+
+.button:disabled {
+  background-color: #808080;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Loading spinner for form submission */
+.submitting-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.submitting-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--accent-color);
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.submitting-text {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Header styles */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Thank you message styles */
+.thank-you-message {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Confetti canvas */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Admin Dashboard Styles */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-header h1 {
+  margin: 0;
+}
+
+.admin-header .button {
+  margin: 0;
+  margin-left: 2rem;
+}
+
+.search-form {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.search-container {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.search-type-selector {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.search-type-selector label {
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.search-type-selector select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  color: #000;
+  height: 40px;
+}
+
+.input-field {
+  flex: 1;
+  min-width: 200px;
+}
+
+.input-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  color: #000;
+  height: 40px;
+}
+
+.button {
+  height: 40px;
+  margin-top: 24px; /* Align with input fields by compensating for label height */
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  color: #000000;
+}
+
+.admin-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #000000;
+}
+
+.admin-table td {
+  vertical-align: middle;
+}
+
+.admin-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Column specific styles */
+.admin-table td:nth-child(1), /* Name column */
+.admin-table td:nth-child(2) { /* Email column */
+  min-width: 200px;
+  max-width: 300px;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.admin-table td:nth-child(3), /* Google Review column */
+.admin-table td:nth-child(4), /* Instagram Follow column */
+.admin-table td:nth-child(5) { /* Discount Redeemed column */
+  width: 100px;
+  text-align: center;
+}
+
+.admin-table td:nth-child(6) { /* Date Added column */
+  width: 120px;
+}
+
+.admin-table td:nth-child(7) { /* Actions column */
+  width: 120px;
+  text-align: center;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.redeem-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.redeem-button:hover {
+  background-color: #218838;
+}
+
+.redeem-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Admin Login Styles */
+.login-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #000;
+}
+
+/* Add a loading spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+}
+
+.welcome-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.welcome-title {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInDown 1s ease-out;
+}
+
+.welcome-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  max-width: 600px;
+  line-height: 1.6;
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.welcome-buttons {
+  display: flex;
+  gap: 1rem;
+  animation: fadeIn 1s ease-out 1s both;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Export section styles */
+.export-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.export-section h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #000000;
+  font-size: 1.2rem;
+}
+
+.date-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.date-input {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+.date-input label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.date-input input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  height: 40px;
+}
+
+.export-button {
+  height: 40px;
+  margin-left: auto;
+  background-color: var(--accent-color);
+  color: #000000;
+  font-weight: 700;
+  text-shadow: none;
+  opacity: 1;
+}
+
+.export-button.direct-export {
+  margin-left: 10px;
+  background-color: #4CAF50;
+  color: white;
+  font-weight: 700;
+  text-shadow: none;
+  opacity: 1;
+}
+
+.export-button:hover {
+  background-color: #808080;
+  color: white;
+}
+
+.export-button:disabled {
+  background-color: #808080;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
