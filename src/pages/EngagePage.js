@@ -4,6 +4,7 @@ import { doc, updateDoc, setDoc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import Header from '../components/Header';
 import Button from '../components/Button';
+import DiscountDisplay from '../components/DiscountDisplay';
 import '../styles/global.css';
 
 // Import confetti for celebration effect
@@ -125,8 +126,14 @@ const EngagePage = () => {
       <div className="content-container">
         <h1 style={{ color: '#FFD700', textAlign: 'center', marginBottom: '20px' }}>Engage and Save</h1>
         <h2 style={{ color: 'white', textAlign: 'center', marginBottom: '20px' }}>
-          Step 2 - Receive an additional 5% off non-wine merchandise for reviewing us on Google and following us on Instagram. Do both? Get a total of 15% off all non-wine merchandise and stay engaged with Bhutan Wine Company!
+          Step 2 - Complete these actions to increase your discount on non-wine merchandise:
         </h2>
+        
+        <DiscountDisplay 
+          googleReviewed={googleReviewed}
+          instagramFollowed={instagramFollowed}
+        />
+        
         {isLoading ? (
           <div className="loading">Loading...</div>
         ) : (
@@ -155,11 +162,10 @@ const EngagePage = () => {
                 style={{ width: '24px', height: '24px' }}
               />
               <Button 
-                text="Review us on Google" 
+                text={googleReviewed ? "Reviewed on Google ✓" : "Review us on Google"} 
                 onClick={handleGoogleReview}
                 style={{ width: '100%', maxWidth: '250px' }}
               />
-              {googleReviewed && <span className="checkmark">✓</span>}
             </div>
             
             <div className="button-container" style={{
@@ -179,11 +185,10 @@ const EngagePage = () => {
                 style={{ width: '24px', height: '24px' }}
               />
               <Button 
-                text="Follow us on Instagram" 
+                text={instagramFollowed ? "Following on Instagram ✓" : "Follow us on Instagram"} 
                 onClick={handleInstagramFollow}
                 style={{ width: '100%', maxWidth: '250px' }}
               />
-              {instagramFollowed && <span className="checkmark">✓</span>}
             </div>
             
             {showConfetti && (
